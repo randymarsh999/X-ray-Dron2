@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnMeas = new System.Windows.Forms.Button();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,7 +50,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtTimer = new System.Windows.Forms.TextBox();
             this.txtSAMPLE_FREQ = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.txtBufSize = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -136,16 +135,16 @@
             // 
             // chMeas
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chMeas.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chMeas.Legends.Add(legend2);
+            chartArea1.Name = "ChartArea1";
+            this.chMeas.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chMeas.Legends.Add(legend1);
             this.chMeas.Location = new System.Drawing.Point(34, 44);
             this.chMeas.Name = "chMeas";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chMeas.Series.Add(series2);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chMeas.Series.Add(series1);
             this.chMeas.Size = new System.Drawing.Size(754, 279);
             this.chMeas.TabIndex = 2;
             this.chMeas.Text = "chart1";
@@ -215,13 +214,6 @@
             this.txtSAMPLE_FREQ.TabIndex = 8;
             this.txtSAMPLE_FREQ.Text = "250000";
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(34, 442);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 9;
-            // 
             // txtBufSize
             // 
             this.txtBufSize.Location = new System.Drawing.Point(310, 543);
@@ -269,7 +261,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtBufSize);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.txtSAMPLE_FREQ);
             this.Controls.Add(this.txtTimer);
             this.Controls.Add(this.label1);
@@ -312,7 +303,6 @@
         private System.Windows.Forms.ToolStripMenuItem measurmentOptionsToolStripMenuItem;
         private System.Windows.Forms.TextBox txtTimer;
         private System.Windows.Forms.TextBox txtSAMPLE_FREQ;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.TextBox txtBufSize;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
