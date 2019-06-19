@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2019
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LA-2USB_StartStop", "LA-2USB_StartStop.csproj", "{508A1A5B-190E-47A5-9307-AACCCB390F9D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{508A1A5B-190E-47A5-9307-AACCCB390F9D}.Debug|x86.ActiveCfg = Debug|x86
+		{508A1A5B-190E-47A5-9307-AACCCB390F9D}.Debug|x86.Build.0 = Debug|x86
+		{508A1A5B-190E-47A5-9307-AACCCB390F9D}.Release|x86.ActiveCfg = Release|x86
+		{508A1A5B-190E-47A5-9307-AACCCB390F9D}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {592E94E4-B7B8-4E6C-81E0-DF27574A1593}
+	EndGlobalSection
+EndGlobal
