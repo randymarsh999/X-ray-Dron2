@@ -195,122 +195,133 @@ class DBConn
         string s = "";
         for (int i = 0; i < DG.Columns.Count; i++)
         {
-            switch (DG.Columns[i].HeaderText)
-            {
-                case "id": s = s + DG.Columns[i].HeaderText + " SERIAL PRIMARY KEY, "; break;
-
-                case "id_section": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
-                case "Direction": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
-                case "Meas_type": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
-                case "Direct": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
-                case "Polarity": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
-                case "operator": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
-
-                case "id_sample": s = s + DG.Columns[i].HeaderText + " INT, "; break;
-                case "Step": s = s + DG.Columns[i].HeaderText + " INT, "; break;
-                case "f_Hz": s = s + DG.Columns[i].HeaderText + " INT, "; break;
-                case "Cycle": s = s + DG.Columns[i].HeaderText + " INT, "; break;
-                case "Timer": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-
-
-                case "Tsint_K": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "t_cm": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "d_cm": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "T_K": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "C_pF": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "e_re": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "tgd1e2": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "e_im": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "tgd": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "Y": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "Ubias_V": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "Hbias_T": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "Xi": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "Xi0": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "Xi-Xi0": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "Uout_V": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "E_kV_Div_cm": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "k_10_E_4": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "d33rev_m_V": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "d33rev": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-                case "Timer_disp": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-
-                case "Time": s = s + DG.Columns[i].HeaderText + " time, "; break;
-
-                case "Date": s = s + DG.Columns[i].HeaderText + " date, "; break;
-
-                default:
-                    s = s + DG.Columns[i].HeaderText + " double precision, "; break;
-            }
-            #region comments
-            //if (DG.Columns[i].HeaderText == "id")
-            //{
-            //    s = s + DG.Columns[i].HeaderText + " SERIAL PRIMARY KEY, ";
-            //}
-            //if (DG.Columns[i].HeaderText == "id_section" ||
-            //    DG.Columns[i].HeaderText == "Direction" ||
-            //    DG.Columns[i].HeaderText == "Meas_type" ||
-            //    DG.Columns[i].HeaderText == "Direct" ||
-            //    DG.Columns[i].HeaderText == "Polarity" ||
-            //    DG.Columns[i].HeaderText == "operator")
-            //{
-            //    s = s + DG.Columns[i].HeaderText + " char(255), ";
-            //}
-            //if (DG.Columns[i].HeaderText == "id_sample" ||
-            //    DG.Columns[i].HeaderText == "Step")
-            //{
-            //    s = s + DG.Columns[i].HeaderText + " INT, ";
-            //}
-
-
-            //if (DG.Columns[i].HeaderText == "Tsint_K" ||
-            //    DG.Columns[i].HeaderText == "t_cm" ||
-            //    DG.Columns[i].HeaderText == "d_cm" ||
-            //    DG.Columns[i].HeaderText == "T_K" ||
-            //    DG.Columns[i].HeaderText == "T_K" ||
-            //    DG.Columns[i].HeaderText == "C_pF" ||
-            //    DG.Columns[i].HeaderText == "e_re" ||
-            //    DG.Columns[i].HeaderText == "tgd1e2" ||
-            //    DG.Columns[i].HeaderText == "e_im" ||
-            //    DG.Columns[i].HeaderText == "tgd" ||
-            //    DG.Columns[i].HeaderText == "Y" ||
-            //    DG.Columns[i].HeaderText == "Ubias_V" ||
-            //    DG.Columns[i].HeaderText == "Hbias_T" ||
-            //    DG.Columns[i].HeaderText == "Xi" ||
-            //    DG.Columns[i].HeaderText == "Xi0" ||
-            //    DG.Columns[i].HeaderText == "Xi-Xi0" ||
-            //    DG.Columns[i].HeaderText == "Uout_V" ||
-            //    DG.Columns[i].HeaderText == "E_kV_Div_cm" ||
-
-            //    DG.Columns[i].HeaderText == "k_10_E_4" ||
-            //    DG.Columns[i].HeaderText == "d33rev_m_V" ||
-            //    DG.Columns[i].HeaderText == "d33rev" ||
-            //    DG.Columns[i].HeaderText == "Timer_disp"
-            //    )
-            //{
-            //    s = s + DG.Columns[i].HeaderText + " double precision, ";
-            //}
-
-            //if (DG.Columns[i].HeaderText == "f_Hz" ||
-            //    DG.Columns[i].HeaderText == "Cycle" ||
-            //    DG.Columns[i].HeaderText == "Timer")
-            //{
-            //    s = s + DG.Columns[i].HeaderText + " INT, ";
-            //}
-            //if (DG.Columns[i].HeaderText == "Time")
-            //{
-            //    s = s + DG.Columns[i].HeaderText + " time, ";
-            //}
-            //if (DG.Columns[i].HeaderText == "Date")
-            //{
-            //    s = s + DG.Columns[i].HeaderText + " date, ";
-            //}
-            #endregion
+             s = s + DG.Columns[i].HeaderText + " "+ DG.Columns[i].Tag +", ";
         }
 
         string sql = "Create table " + TableName + " (" + s + " description text);";
         return sql;
     }
+
+
+    //public string DBCreateTableSQLCommand(DataGridView DG, string TableName)
+    //{
+    //    string s = "";
+    //    for (int i = 0; i < DG.Columns.Count; i++)
+    //    {
+    //        switch (DG.Columns[i].HeaderText)
+    //        {
+    //            case "id": s = s + DG.Columns[i].HeaderText + " SERIAL PRIMARY KEY, "; break;
+
+    //            case "id_section": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
+    //            case "Direction": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
+    //            case "Meas_type": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
+    //            case "Direct": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
+    //            case "Polarity": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
+    //            case "operator": s = s + DG.Columns[i].HeaderText + " char(255), "; break;
+
+    //            case "id_sample": s = s + DG.Columns[i].HeaderText + " INT, "; break;
+    //            case "Step": s = s + DG.Columns[i].HeaderText + " INT, "; break;
+    //            case "f_Hz": s = s + DG.Columns[i].HeaderText + " INT, "; break;
+    //            case "Cycle": s = s + DG.Columns[i].HeaderText + " INT, "; break;
+    //            case "Timer": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Tsint_K": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "t_cm": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "d_cm": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "T_K": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "C_pF": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "e_re": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "tgd1e2": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "e_im": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "tgd": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Y": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Ubias_V": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Hbias_T": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Xi": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Xi0": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Xi-Xi0": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Uout_V": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "E_kV_Div_cm": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "k_10_E_4": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "d33rev_m_V": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "d33rev": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //            case "Timer_disp": s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+
+    //            case "Time": s = s + DG.Columns[i].HeaderText + " time, "; break;
+
+    //            case "Date": s = s + DG.Columns[i].HeaderText + " date, "; break;
+
+    //            default:
+    //                s = s + DG.Columns[i].HeaderText + " double precision, "; break;
+    //        }
+    //        #region comments
+    //        //if (DG.Columns[i].HeaderText == "id")
+    //        //{
+    //        //    s = s + DG.Columns[i].HeaderText + " SERIAL PRIMARY KEY, ";
+    //        //}
+    //        //if (DG.Columns[i].HeaderText == "id_section" ||
+    //        //    DG.Columns[i].HeaderText == "Direction" ||
+    //        //    DG.Columns[i].HeaderText == "Meas_type" ||
+    //        //    DG.Columns[i].HeaderText == "Direct" ||
+    //        //    DG.Columns[i].HeaderText == "Polarity" ||
+    //        //    DG.Columns[i].HeaderText == "operator")
+    //        //{
+    //        //    s = s + DG.Columns[i].HeaderText + " char(255), ";
+    //        //}
+    //        //if (DG.Columns[i].HeaderText == "id_sample" ||
+    //        //    DG.Columns[i].HeaderText == "Step")
+    //        //{
+    //        //    s = s + DG.Columns[i].HeaderText + " INT, ";
+    //        //}
+
+
+    //        //if (DG.Columns[i].HeaderText == "Tsint_K" ||
+    //        //    DG.Columns[i].HeaderText == "t_cm" ||
+    //        //    DG.Columns[i].HeaderText == "d_cm" ||
+    //        //    DG.Columns[i].HeaderText == "T_K" ||
+    //        //    DG.Columns[i].HeaderText == "T_K" ||
+    //        //    DG.Columns[i].HeaderText == "C_pF" ||
+    //        //    DG.Columns[i].HeaderText == "e_re" ||
+    //        //    DG.Columns[i].HeaderText == "tgd1e2" ||
+    //        //    DG.Columns[i].HeaderText == "e_im" ||
+    //        //    DG.Columns[i].HeaderText == "tgd" ||
+    //        //    DG.Columns[i].HeaderText == "Y" ||
+    //        //    DG.Columns[i].HeaderText == "Ubias_V" ||
+    //        //    DG.Columns[i].HeaderText == "Hbias_T" ||
+    //        //    DG.Columns[i].HeaderText == "Xi" ||
+    //        //    DG.Columns[i].HeaderText == "Xi0" ||
+    //        //    DG.Columns[i].HeaderText == "Xi-Xi0" ||
+    //        //    DG.Columns[i].HeaderText == "Uout_V" ||
+    //        //    DG.Columns[i].HeaderText == "E_kV_Div_cm" ||
+
+    //        //    DG.Columns[i].HeaderText == "k_10_E_4" ||
+    //        //    DG.Columns[i].HeaderText == "d33rev_m_V" ||
+    //        //    DG.Columns[i].HeaderText == "d33rev" ||
+    //        //    DG.Columns[i].HeaderText == "Timer_disp"
+    //        //    )
+    //        //{
+    //        //    s = s + DG.Columns[i].HeaderText + " double precision, ";
+    //        //}
+
+    //        //if (DG.Columns[i].HeaderText == "f_Hz" ||
+    //        //    DG.Columns[i].HeaderText == "Cycle" ||
+    //        //    DG.Columns[i].HeaderText == "Timer")
+    //        //{
+    //        //    s = s + DG.Columns[i].HeaderText + " INT, ";
+    //        //}
+    //        //if (DG.Columns[i].HeaderText == "Time")
+    //        //{
+    //        //    s = s + DG.Columns[i].HeaderText + " time, ";
+    //        //}
+    //        //if (DG.Columns[i].HeaderText == "Date")
+    //        //{
+    //        //    s = s + DG.Columns[i].HeaderText + " date, ";
+    //        //}
+    //        #endregion
+    //    }
+
+    //    string sql = "Create table " + TableName + " (" + s + " description text);";
+    //    return sql;
+    //}
 
     /// <summary>
     /// Databases the export data common.
