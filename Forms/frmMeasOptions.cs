@@ -39,5 +39,10 @@ using System.Windows.Forms;
     {
 
     }
-}
 
+    private void FrmMOptions_FormClosing(object sender, FormClosingEventArgs e)
+    {
+        e.Cancel=true;
+        this.Hide();
+    }
+}

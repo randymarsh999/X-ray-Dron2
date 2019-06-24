@@ -137,8 +137,8 @@
             // 
             this.cmbSavingType.FormattingEnabled = true;
             this.cmbSavingType.Items.AddRange(new object[] {
-            "Text",
-            "SQL file"});
+            "TEXT",
+            "SQL_FILE"});
             this.cmbSavingType.Location = new System.Drawing.Point(159, 101);
             this.cmbSavingType.Name = "cmbSavingType";
             this.cmbSavingType.Size = new System.Drawing.Size(121, 21);
@@ -176,6 +176,7 @@
             this.Name = "frmMOptions";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Measurment options";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMOptions_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,6 +194,6 @@
         private System.Windows.Forms.Label p_exp;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox cmbIntensivityArbInterval;
-    public System.Windows.Forms.ComboBox cmbSavingType;
-    private System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox cmbSavingType;
+        private System.Windows.Forms.Label label5;
 }

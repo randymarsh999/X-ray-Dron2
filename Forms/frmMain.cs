@@ -18,10 +18,11 @@ namespace StartStop
         private RshInitDMA p = new RshInitDMA();
         private frmMOptions frmMOpt = new frmMOptions();
         private frmDataBase frmDBConnection = new frmDataBase();
+        private frmLA2 frmLA2usb = new frmLA2();
 
 
-
-        
+        private bool frmLA2USB_show =false;
+        private bool frmMOpt_show = false;
 
 
         public frmMain()
@@ -58,10 +59,7 @@ namespace StartStop
                         {
                             break;
                         }
-
                 }
-
-
 
                 measTimer.Enabled = true;
             }
@@ -110,17 +108,44 @@ namespace StartStop
             PP.mTime += PP.TimerMeas*PP.CoefTimer;
             measRes();
             chMeas.Series[0].Points.AddXY(PP.mTime, PP.Intensity_arb);
-            SaveData();
-            //if (PP.mTime >= 600)
-            //{
-            //    measTimer.Enabled = false; 
-            //}
+            switch (frmMOpt.cmbSavingType.Text)
+            {
+                case "TEXT":
+                    {
+                        int[] col = new int[] { 11, 12, 13 };
+                        SaveDataTEXT(col);
+                        break;
+                    }
+                case "SQL_FILE":
+                    {
+                        SaveData();
+                        break;
+                    }
+                default:
+                    {
+                        break;
+                    }
+            }
+            
+                
         }
-
+        /// <summary>
+        /// Save data to file if SQL_FILE
+        /// </summary>
         void SaveData()
         {
             DBConn dBConn = new DBConn();
             string sql = dBConn.DBExportDataString(this.dGridTempMeas, PP.DBTableName, 0);
+            FileJob FJ = new FileJob();
+            FJ.WriteF(sql, PP.FileNameSaveTempMeasDB);
+        }
+        /// <summary>
+        /// TEXT
+        /// </summary>
+        void SaveDataTEXT(int[]p)
+        {
+            DBConn dBConn = new DBConn();
+            string sql = dBConn.DBExportDataString(this.dGridTempMeas, PP.DBTableName, p);
             FileJob FJ = new FileJob();
             FJ.WriteF(sql, PP.FileNameSaveTempMeasDB);
         }
@@ -183,18 +208,18 @@ namespace StartStop
             //----------------------------------------------
             #region FragmentForSettingMeasParameters
             //частота дискретизации
-            if (this.txtSAMPLE_FREQ.Text != "")
+            if (frmLA2usb.txtSAMPLE_FREQ.Text != "")
             {
-                PP.SAMPLE_FREQ = Convert.ToInt32(txtSAMPLE_FREQ.Text);
+                PP.SAMPLE_FREQ = Convert.ToInt32(frmLA2usb.txtSAMPLE_FREQ.Text);
                 //Частота дискретизации.
 
             }
             p.frequency = PP.SAMPLE_FREQ;
 
             //Размер внутреннего блока данных, по готовности которого произойдёт прерывание.
-            if (this.txtBufSize.Text != "")
+            if (frmLA2usb.txtBufSize.Text != "")
             {
-                PP.BSIZE = Convert.ToUInt32(this.txtBufSize.Text);
+                PP.BSIZE = Convert.ToUInt32(frmLA2usb.txtBufSize.Text);
             }
             p.bufferSize = PP.BSIZE;
             #endregion
@@ -241,6 +266,7 @@ namespace StartStop
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             sDlg.ShowDialog();
+            sDlg.FileName = frmMOpt.txtComposition.Text;
         }
         /// <summary>
         /// 
@@ -252,7 +278,7 @@ namespace StartStop
             PP.FileNameSaveTempMeasDB = sDlg.FileName;
         }
         /// <summary>
-        /// 
+        /// Save data if Value = SQL
         /// </summary>
         void InitSaveDataToFile()
         {
@@ -263,7 +289,10 @@ namespace StartStop
             FileJob FJ = new FileJob();
             FJ.WriteF(PP.DB_SQL_CMD, PP.FileNameSaveTempMeasDB);
         }
-
+        /// <summary>
+        /// Save data if value =TEXT
+        /// </summary>
+        /// <param name="data"></param>
         void InitSaveDataToFile(string data)
         {
             FileJob FJ = new FileJob();
@@ -325,14 +354,14 @@ namespace StartStop
                     SayGoodBye(st);
                 }
                 ++j;
-
             } while (j < 0);
             return outVal;
         }
 
         private void lA2USBToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmLA2USB_show = true;
+            frmLA2usb.Show();
         }
 
         /// <summary>
@@ -341,6 +370,23 @@ namespace StartStop
         private void InitializationOfParametersForMeas()
         {
             //init datagrid
+            if (frmLA2USB_show == false)
+            {
+                frmLA2usb.Show();
+                frmLA2usb.Hide();
+                frmLA2USB_show = true;
+            }
+            if (frmMOpt_show == false)
+            {
+                frmMOpt.Show();
+                frmMOpt.Hide();
+                frmMOpt_show=true;
+            }
+
+
+
+                
+
             FileJob FJ = new FileJob();
             FJ.ClearDataGridView(dGridTempMeas);
             DataGridJob DGJ = new DataGridJob();
@@ -363,10 +409,11 @@ namespace StartStop
             PP.CelSel = 0;
             PP.mTime = 0;
             PP.ids = 0;
+            PP.DBTableName = frmMOpt.txtComposition.Text;
 
-            if (txtTimer.Text != "")
+            if (frmLA2usb.txtTimer.Text != "")
             {
-                PP.TimerMeas = Convert.ToInt32(this.txtTimer.Text);
+                PP.TimerMeas = Convert.ToInt32(frmLA2usb.txtTimer.Text);
 
             }
 
@@ -407,7 +454,9 @@ namespace StartStop
         }
         private void measurmentOptionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmMOpt_show = true;
             frmMOpt.Show();
+
         }
 
         private void button1_Click_1(object sender, EventArgs e)
@@ -418,6 +467,17 @@ namespace StartStop
         private void TxtTimer_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void AboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AbouToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAboutBox frmAboutBox = new frmAboutBox();
+            frmAboutBox.Show();
         }
     }
 }

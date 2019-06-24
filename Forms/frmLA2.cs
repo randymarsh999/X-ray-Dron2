@@ -8,13 +8,23 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RshExample.Forms
-{
-    public partial class DRON2 : Form
+//namespace RshExample.Forms
+//{
+    public partial class frmLA2 : Form
     {
-        public DRON2()
+        public frmLA2()
         {
             InitializeComponent();
         }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+    private void FrmLA2_Load(object sender, EventArgs e)
+    {
+
     }
 }
+//}

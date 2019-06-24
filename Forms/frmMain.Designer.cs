@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnMeas = new System.Windows.Forms.Button();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,12 +48,7 @@
             this.dGridTempMeas = new System.Windows.Forms.DataGridView();
             this.txtTemp = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTimer = new System.Windows.Forms.TextBox();
-            this.txtSAMPLE_FREQ = new System.Windows.Forms.TextBox();
-            this.txtBufSize = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.abouToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.chMeas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dGridTempMeas)).BeginInit();
@@ -61,9 +56,10 @@
             // 
             // btnMeas
             // 
-            this.btnMeas.Location = new System.Drawing.Point(22, 350);
+            this.btnMeas.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnMeas.Location = new System.Drawing.Point(215, 539);
             this.btnMeas.Name = "btnMeas";
-            this.btnMeas.Size = new System.Drawing.Size(75, 23);
+            this.btnMeas.Size = new System.Drawing.Size(106, 31);
             this.btnMeas.TabIndex = 0;
             this.btnMeas.Text = "Meas";
             this.btnMeas.UseVisualStyleBackColor = true;
@@ -129,23 +125,26 @@
             // 
             // aboutToolStripMenuItem
             // 
+            this.aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.abouToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.aboutToolStripMenuItem.Text = "Help";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.AboutToolStripMenuItem_Click);
             // 
             // chMeas
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chMeas.ChartAreas.Add(chartArea1);
-            legend1.Name = "Legend1";
-            this.chMeas.Legends.Add(legend1);
-            this.chMeas.Location = new System.Drawing.Point(34, 44);
+            chartArea3.Name = "ChartArea1";
+            this.chMeas.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chMeas.Legends.Add(legend3);
+            this.chMeas.Location = new System.Drawing.Point(0, 44);
             this.chMeas.Name = "chMeas";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chMeas.Series.Add(series1);
-            this.chMeas.Size = new System.Drawing.Size(754, 279);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chMeas.Series.Add(series3);
+            this.chMeas.Size = new System.Drawing.Size(822, 367);
             this.chMeas.TabIndex = 2;
             this.chMeas.Text = "chart1";
             // 
@@ -157,9 +156,10 @@
             // lStatus
             // 
             this.lStatus.AutoSize = true;
-            this.lStatus.Location = new System.Drawing.Point(115, 355);
+            this.lStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lStatus.Location = new System.Drawing.Point(300, 24);
             this.lStatus.Name = "lStatus";
-            this.lStatus.Size = new System.Drawing.Size(65, 13);
+            this.lStatus.Size = new System.Drawing.Size(108, 24);
             this.lStatus.TabIndex = 3;
             this.lStatus.Tag = "text";
             this.lStatus.Text = "Status: Stop";
@@ -172,14 +172,14 @@
             // dGridTempMeas
             // 
             this.dGridTempMeas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dGridTempMeas.Location = new System.Drawing.Point(186, 350);
+            this.dGridTempMeas.Location = new System.Drawing.Point(0, 417);
             this.dGridTempMeas.Name = "dGridTempMeas";
-            this.dGridTempMeas.Size = new System.Drawing.Size(602, 177);
+            this.dGridTempMeas.Size = new System.Drawing.Size(822, 118);
             this.dGridTempMeas.TabIndex = 4;
             // 
             // txtTemp
             // 
-            this.txtTemp.Location = new System.Drawing.Point(265, 327);
+            this.txtTemp.Location = new System.Drawing.Point(443, 541);
             this.txtTemp.Name = "txtTemp";
             this.txtTemp.Size = new System.Drawing.Size(100, 20);
             this.txtTemp.TabIndex = 5;
@@ -188,81 +188,27 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(192, 327);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(327, 541);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 13);
+            this.label1.Size = new System.Drawing.Size(110, 20);
             this.label1.TabIndex = 6;
             this.label1.Tag = "text";
             this.label1.Text = "Current temp.:";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtTimer
+            // abouToolStripMenuItem
             // 
-            this.txtTimer.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
-            this.txtTimer.Location = new System.Drawing.Point(22, 543);
-            this.txtTimer.Name = "txtTimer";
-            this.txtTimer.Size = new System.Drawing.Size(100, 20);
-            this.txtTimer.TabIndex = 7;
-            this.txtTimer.Text = "115";
-            this.txtTimer.TextChanged += new System.EventHandler(this.TxtTimer_TextChanged);
-            // 
-            // txtSAMPLE_FREQ
-            // 
-            this.txtSAMPLE_FREQ.Location = new System.Drawing.Point(165, 543);
-            this.txtSAMPLE_FREQ.Name = "txtSAMPLE_FREQ";
-            this.txtSAMPLE_FREQ.Size = new System.Drawing.Size(100, 20);
-            this.txtSAMPLE_FREQ.TabIndex = 8;
-            this.txtSAMPLE_FREQ.Text = "250000";
-            // 
-            // txtBufSize
-            // 
-            this.txtBufSize.Location = new System.Drawing.Point(310, 543);
-            this.txtBufSize.Name = "txtBufSize";
-            this.txtBufSize.Size = new System.Drawing.Size(100, 20);
-            this.txtBufSize.TabIndex = 10;
-            this.txtBufSize.Text = "512";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 527);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 13);
-            this.label2.TabIndex = 11;
-            this.label2.Tag = "text";
-            this.label2.Text = "Timer";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(153, 527);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(29, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Tag = "text";
-            this.label3.Text = "f, Hz";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(307, 530);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(61, 13);
-            this.label4.TabIndex = 13;
-            this.label4.Tag = "text";
-            this.label4.Text = "Buffer_Size";
+            this.abouToolStripMenuItem.Name = "abouToolStripMenuItem";
+            this.abouToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.abouToolStripMenuItem.Text = "About";
+            this.abouToolStripMenuItem.Click += new System.EventHandler(this.AbouToolStripMenuItem_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 591);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.txtBufSize);
-            this.Controls.Add(this.txtSAMPLE_FREQ);
-            this.Controls.Add(this.txtTimer);
+            this.ClientSize = new System.Drawing.Size(822, 582);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtTemp);
             this.Controls.Add(this.dGridTempMeas);
@@ -301,11 +247,6 @@
         private System.Windows.Forms.TextBox txtTemp;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem measurmentOptionsToolStripMenuItem;
-        private System.Windows.Forms.TextBox txtTimer;
-        private System.Windows.Forms.TextBox txtSAMPLE_FREQ;
-        private System.Windows.Forms.TextBox txtBufSize;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ToolStripMenuItem abouToolStripMenuItem;
     }
 }

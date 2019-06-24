@@ -1,6 +1,4 @@
-﻿namespace Kalipso.Forms
-{
-    partial class AboutBox
+﻿    partial class frmAboutBox
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -27,7 +25,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AboutBox));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAboutBox));
             this.tableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.logoPictureBox = new System.Windows.Forms.PictureBox();
             this.labelProductName = new System.Windows.Forms.Label();
@@ -124,7 +122,6 @@
             this.labelCompanyName.TabIndex = 22;
             this.labelCompanyName.Text = "Название организации";
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelCompanyName.Click += new System.EventHandler(this.labelCompanyName_Click);
             // 
             // textBoxDescription
             // 
@@ -138,7 +135,8 @@
             this.textBoxDescription.Size = new System.Drawing.Size(271, 126);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "Описание";
+            this.textBoxDescription.Text = "Program for obtaining data from the X-ray diffractometer model DRONE-2, using the" +
+    " ADC LA2USB.";
             // 
             // okButton
             // 
@@ -149,9 +147,9 @@
             this.okButton.Size = new System.Drawing.Size(75, 23);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&ОК";
-            this.okButton.Click += new System.EventHandler(this.okButton_Click);
+            this.okButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
-            // AboutBox
+            // frmAboutBox
             // 
             this.AcceptButton = this.okButton;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -161,12 +159,12 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "AboutBox";
+            this.Name = "frmAboutBox";
             this.Padding = new System.Windows.Forms.Padding(9);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AboutBox";
+            this.Text = "AboutBox1";
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoPictureBox)).EndInit();
@@ -185,4 +183,3 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button okButton;
     }
-}

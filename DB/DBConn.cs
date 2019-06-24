@@ -8,10 +8,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
-
-
-
-
 class DBConn
 {
     /// <summary>
@@ -398,7 +394,7 @@ class DBConn
         string sql = "";
         string sql_data = "";
         sql = "Insert into " + TableName + " (";
-        //for (int j = 1; j < DG.ColumnCount-1 ; j++)
+
         for (int j = 1; j < DG.ColumnCount; j++)
         {
             if (j == DG.ColumnCount-1)
@@ -407,10 +403,9 @@ class DBConn
             }
             else sql = sql + DG.Columns[j].Name + ", ";
         }
+
         for (int j = 1; j < DG.ColumnCount; j++)
         {
-            
-
                 string s2 = DG.Columns[j].Tag.ToString();
                 if (DG.Rows[i].Cells[j].Value == null)
                 {
@@ -428,13 +423,34 @@ class DBConn
                     default: sql_data = sql_data + "'" + s1 + "', "; break;
                 }
         }
-        //sql_data = sql_data + "'" + DG.Rows[i].Cells[DG.ColumnCount-1].Value.ToString() + "'";
-        
-
         sql_data = sql_data.Substring(0, sql_data.Length - 2);
         sql = sql + " values (" + sql_data + ");";
         return sql;
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="DG"></param>
+    /// <param name="TableName"></param>
+    /// <param name="columns"></param>
+    /// <returns></returns>
+    public string DBExportDataString(DataGridView DG, string TableName, int[] columns)
+    {
+        string sql = TableName;
+        for (int j = 1; j < DG.ColumnCount; j++)
+        {
+            for (int i=0; i<columns.Count(); i++)
+            {
+                if (columns[i] == j)
+                {
+                    sql +=" " + DG.Rows[0].Cells[j].Value.ToString();
+                }
+            }
+        }
+        return sql;
+    }
+
+
 
     /// <summary>
     /// Databases the export data random.
